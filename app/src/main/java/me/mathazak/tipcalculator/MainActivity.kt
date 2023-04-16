@@ -5,17 +5,20 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.SeekBar
+import androidx.appcompat.app.AppCompatDelegate.*
 import me.mathazak.tipcalculator.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme1)
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         updateTotal()
-        binding.tipSeekBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener {
+
+        binding.tipSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 updateTip(progress)
                 updateTotal()
@@ -23,13 +26,22 @@ class MainActivity : AppCompatActivity() {
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
-        binding.baseCost.addTextChangedListener(object: TextWatcher {
+
+        binding.baseCost.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
             override fun afterTextChanged(s: Editable?) {
                 updateTotal()
             }
         })
+
+        binding.darkMode.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                setDefaultNightMode(MODE_NIGHT_YES)
+            } else {
+                setDefaultNightMode(MODE_NIGHT_NO)
+            }
+        }
     }
 
     private fun updateTip(percent: Int) {

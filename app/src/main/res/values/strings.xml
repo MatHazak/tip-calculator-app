@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Tip Calculator</string>
-lo    <string name="percent">%d%%</string>
+    <string name="percent">%d%%</string>
     <string name="money">%.2f$</string>
 </resources>

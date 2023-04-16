@@ -13,8 +13,6 @@
             android:id="@+id/baseCost"
             android:text="80"
             android:textAlignment="center"
-            android:backgroundTint="@color/teal_200"
-            android:textColor="#505050"
             android:inputType="numberDecimal"
             android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="@+id/textView10"
@@ -28,7 +26,6 @@
             android:id="@+id/tipSeekBar"
             android:progress="10"
             android:max="30"
-            android:progressTint="@color/teal_200"
             style="@style/Widget.AppCompat.SeekBar"
             app:layout_constraintTop_toTopOf="@+id/textView11"
             app:layout_constraintBottom_toBottomOf="@+id/textView11"
@@ -72,9 +69,19 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/textView12"
             app:layout_constraintEnd_toEndOf="@+id/textView12"
-            android:layout_marginTop="35dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:id="@+id/textView17" />
+            android:id="@+id/textView17"
+            android:layout_marginTop="35dp" />
+
+    <TextView
+            android:text="Dark Mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:id="@+id/textView"
+            app:layout_constraintEnd_toEndOf="@+id/textView17"
+            app:layout_constraintTop_toBottomOf="@+id/textView17"
+            android:layout_marginTop="35dp" />
 
     <TextView
             android:text="10%"
@@ -107,5 +114,16 @@
             android:layout_marginStart="35dp"
             app:layout_constraintStart_toEndOf="@+id/textView17"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <androidx.appcompat.widget.SwitchCompat
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:id="@+id/darkMode"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="@+id/textView"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            android:layout_marginStart="35dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
