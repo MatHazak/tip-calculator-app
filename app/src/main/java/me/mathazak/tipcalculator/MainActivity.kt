@@ -16,11 +16,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        updateTip()
         updateTotal()
 
         binding.tipSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                updateTip(progress)
+                updateTip()
                 updateTotal()
             }
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
@@ -44,7 +46,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateTip(percent: Int) {
+    private fun updateTip() {
+        val percent = binding.tipSeekBar.progress
         binding.tipPercent.text = getString(R.string.percent, percent)
     }
 

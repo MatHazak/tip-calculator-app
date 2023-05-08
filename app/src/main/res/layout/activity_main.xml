@@ -11,14 +11,16 @@
             android:layout_height="48dp"
             android:ems="10"
             android:id="@+id/baseCost"
-            android:text="80"
             android:textAlignment="center"
             android:inputType="numberDecimal"
             android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="@+id/textView10"
             app:layout_constraintTop_toTopOf="@+id/textView10"
             app:layout_constraintStart_toEndOf="@+id/textView10"
-            android:layout_marginStart="35dp" />
+            android:layout_marginStart="10dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:importantForAutofill="no"
+            android:hint="@string/input_base_cost_prompt" />
 
     <SeekBar
             android:layout_width="191dp"
@@ -29,32 +31,32 @@
             style="@style/Widget.AppCompat.SeekBar"
             app:layout_constraintTop_toTopOf="@+id/textView11"
             app:layout_constraintBottom_toBottomOf="@+id/textView11"
-            android:layout_marginStart="35dp"
-            app:layout_constraintStart_toEndOf="@+id/textView11" />
+            app:layout_constraintStart_toStartOf="@+id/baseCost" />
 
     <TextView
-            android:text="Base Cost"
+            android:text="@string/base"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="50dp"
-            android:layout_marginStart="35dp"
             android:id="@+id/textView10"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="@+id/textView11"
+            android:labelFor="@id/baseCost" />
 
     <TextView
-            android:text="Tip Percent"
+            android:text="@string/tip_percent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/textView10"
             android:id="@+id/textView11"
-            app:layout_constraintEnd_toEndOf="@+id/textView10"
             android:layout_marginTop="35dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="20dp" />
 
     <TextView
-            android:text="Tip"
+            android:text="@string/tip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/textView11"
@@ -64,7 +66,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <TextView
-            android:text="Total"
+            android:text="@string/total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/textView12"
@@ -74,7 +76,7 @@
             android:layout_marginTop="35dp" />
 
     <TextView
-            android:text="Dark Mode"
+            android:text="@string/dark_mode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -84,36 +86,36 @@
             android:layout_marginTop="35dp" />
 
     <TextView
-            android:text="10%"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tipPercent"
             app:layout_constraintTop_toTopOf="@+id/tipSeekBar"
             app:layout_constraintBottom_toBottomOf="@+id/tipSeekBar"
             app:layout_constraintStart_toEndOf="@+id/tipSeekBar"
+            tools:text="10"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:layout_marginStart="5dp" />
 
     <TextView
-            android:text="8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tipCost"
             app:layout_constraintTop_toTopOf="@+id/textView12"
             app:layout_constraintBottom_toBottomOf="@+id/textView12"
-            android:layout_marginStart="35dp"
-            app:layout_constraintStart_toEndOf="@+id/textView12"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            tools:text="8"
+            app:layout_constraintStart_toStartOf="@+id/tipSeekBar" />
 
     <TextView
-            android:text="88"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/totalCost"
             app:layout_constraintTop_toTopOf="@+id/textView17"
             app:layout_constraintBottom_toBottomOf="@+id/textView17"
-            android:layout_marginStart="35dp"
-            app:layout_constraintStart_toEndOf="@+id/textView17"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            app:layout_constraintStart_toEndOf="@+id/tipCost"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            tools:text="88"
+            app:layout_constraintStart_toStartOf="@+id/tipCost" />
 
     <androidx.appcompat.widget.SwitchCompat
             android:layout_width="wrap_content"
@@ -121,9 +123,8 @@
             android:id="@+id/darkMode"
             android:scaleX="1.2"
             android:scaleY="1.2"
-            app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toTopOf="@+id/textView"
             app:layout_constraintBottom_toBottomOf="@+id/textView"
-            android:layout_marginStart="35dp" />
+            app:layout_constraintStart_toStartOf="@+id/totalCost" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
